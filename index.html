@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Roch_Santé</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+  <h2>Connexion Roch_Santé</h2>
+  <input type="text" id="username" placeholder="Utilisateur">
+  <input type="password" id="password" placeholder="Mot de passe">
+  <button onclick="login()">Se connecter</button>
+  <p id="error"></p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+
+  <h1>🏥 Roch_Santé Dashboard</h1>
+
+  <button onclick="logout()">Déconnexion</button>
+
+  <!-- AJOUT PATIENT -->
+  <div class="card">
+    <h3>Ajouter un patient</h3>
+    <input type="text" id="name" placeholder="Nom">
+    <input type="number" id="age" placeholder="Âge">
+
+    <select id="status">
+      <option>En traitement</option>
+      <option>Guéri</option>
+      <option>Décédé</option>
+    </select>
+
+    <button onclick="addPatient()">Ajouter</button>
+  </div>
+
+  <!-- LISTE -->
+  <div class="card">
+    <h3>Liste des patients</h3>
+    <ul id="patientList"></ul>
+  </div>
+
+  <!-- STATS -->
+  <div class="card">
+    <h3>Statistiques</h3>
+    <canvas id="chart"></canvas>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
