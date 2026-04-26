@@ -2,57 +2,82 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roch_Santé</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Style -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
 <!-- LOGIN -->
-<div id="loginPage">
-  <h2>Connexion Roch_Santé</h2>
-  <input type="text" id="username" placeholder="Utilisateur">
-  <input type="password" id="password" placeholder="Mot de passe">
-  <button onclick="login()">Se connecter</button>
-  <p id="error"></p>
+<div id="loginPage" class="container center">
+  <div class="card login-card">
+    <h2>🔐 Connexion</h2>
+
+    <input type="text" id="username" placeholder="Nom d'utilisateur">
+    <input type="password" id="password" placeholder="Mot de passe">
+
+    <button class="primary-btn" onclick="login()">Se connecter</button>
+
+    <p id="error" class="error-text"></p>
+  </div>
 </div>
 
 <!-- DASHBOARD -->
 <div id="dashboard" class="hidden">
 
-  <h1>🏥 Roch_Santé Dashboard</h1>
+  <!-- HEADER -->
+  <header class="navbar">
+    <h1>🏥 Roch_Santé</h1>
+    <button class="logout-btn" onclick="logout()">Déconnexion</button>
+  </header>
 
-  <button onclick="logout()">Déconnexion</button>
+  <!-- MAIN CONTENT -->
+  <main class="grid">
 
-  <!-- AJOUT PATIENT -->
-  <div class="card">
-    <h3>Ajouter un patient</h3>
-    <input type="text" id="name" placeholder="Nom">
-    <input type="number" id="age" placeholder="Âge">
+    <!-- AJOUT PATIENT -->
+    <section class="card">
+      <h3>➕ Ajouter un patient</h3>
 
-    <select id="status">
-      <option>En traitement</option>
-      <option>Guéri</option>
-      <option>Décédé</option>
-    </select>
+      <input type="text" id="name" placeholder="Nom complet">
+      <input type="number" id="age" placeholder="Âge">
 
-    <button onclick="addPatient()">Ajouter</button>
-  </div>
+      <select id="status">
+        <option>En traitement</option>
+        <option>Guéri</option>
+        <option>Décédé</option>
+      </select>
 
-  <!-- LISTE -->
-  <div class="card">
-    <h3>Liste des patients</h3>
-    <ul id="patientList"></ul>
-  </div>
+      <button class="primary-btn" onclick="addPatient()">Ajouter</button>
+    </section>
 
-  <!-- STATS -->
-  <div class="card">
-    <h3>Statistiques</h3>
-    <canvas id="chart"></canvas>
-  </div>
+    <!-- LISTE -->
+    <section class="card">
+      <h3>📋 Liste des patients</h3>
+      <ul id="patientList"></ul>
+    </section>
+
+    <!-- STATS -->
+    <section class="card">
+      <h3>📊 Statistiques</h3>
+      <canvas id="chart"></canvas>
+    </section>
+
+  </main>
 
 </div>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
